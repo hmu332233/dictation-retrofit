@@ -24,7 +24,7 @@ public class Library {
     		quizResult.setStudentName("test");
     		
     		QuestionResult questionResult = new QuestionResult();
-    		questionResult.setCorrect("0");
+    		questionResult.setCorrect(true);
     		ArrayList list = new ArrayList<QuestionResult>();
     		list.add(questionResult);
     		quizResult.setQuestionResult(list);
@@ -49,7 +49,7 @@ public class Library {
 //				}
 //			});
 //    		
-    		apiRequester.getQuizHistory("599b4961b810a0089b6952ea",new ApiRequester.UserCallback<QuizHistory>() {
+    		apiRequester.getQuizHistory("599b4ad8b810a0089b6952eb",new ApiRequester.UserCallback<QuizHistory>() {
 				
 				@Override
 				public void onSuccess(QuizHistory result) {
@@ -58,7 +58,7 @@ public class Library {
 						
 						List<QuizResult> qr = result.getQuizResults();
 						
-						System.out.println(qr.get(0).getQuestionResult().get(0).getWrongPart().get(0)[1]);
+						System.out.println(qr.get(0).getQuestionResult().get(0).getCorrect());
 						
 							
 							

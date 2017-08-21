@@ -13,7 +13,7 @@ public class QuestionResult {
     private Integer questionNumber;
     @SerializedName("correct")
     @Expose
-    private String correct;
+    private Boolean correct;
     @SerializedName("wrong_part")
     @Expose
     private ArrayList<String[]> wrongPart;
@@ -29,11 +29,11 @@ public class QuestionResult {
         this.questionNumber = questionNumber;
     }
 
-    public String getCorrect() {
+    public Boolean getCorrect() {
         return correct;
     }
 
-    public void setCorrect(String correct) {
+    public void setCorrect(Boolean correct) {
         this.correct = correct;
     }
 
