@@ -14,9 +14,9 @@ public class QuestionResult {
     @SerializedName("correct")
     @Expose
     private Boolean correct;
-    @SerializedName("wrong_part")
+    @SerializedName("rectify")
     @Expose
-    private ArrayList<String[]> wrongPart;
+    private ArrayList<String[]> rectify;
     @SerializedName("submitted_answer")
     @Expose
     private String submittedAnswer;
@@ -37,12 +37,12 @@ public class QuestionResult {
         this.correct = correct;
     }
 
-    public ArrayList<String[]> getWrongPart() {
-        return wrongPart;
+    public ArrayList<String[]> getRectify() {
+        return rectify;
     }
 
-    public void setWrongPart(ArrayList<String[]> wrongPart) {
-        this.wrongPart = wrongPart;
+    public void setRectify(ArrayList<String[]> rectify) {
+        this.rectify = rectify;
     }
 
     public String getSubmittedAnswer() {

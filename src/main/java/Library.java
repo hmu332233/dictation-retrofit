@@ -49,7 +49,7 @@ public class Library {
 //				}
 //			});
 //    		
-    		apiRequester.getQuizHistory("599b4ad8b810a0089b6952eb",new ApiRequester.UserCallback<QuizHistory>() {
+    		apiRequester.getQuizHistory("599b4de9e5d3aa01a4ed336f",new ApiRequester.UserCallback<QuizHistory>() {
 				
 				@Override
 				public void onSuccess(QuizHistory result) {
@@ -58,7 +58,7 @@ public class Library {
 						
 						List<QuizResult> qr = result.getQuizResults();
 						
-						System.out.println(qr.get(0).getQuestionResult().get(0).getCorrect());
+						System.out.println(qr.get(0).getQuestionResult().get(0).getRectify().get(0)[0]);
 						
 							
 							
