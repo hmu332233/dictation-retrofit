@@ -6,27 +6,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class Question {
 
-    @SerializedName("question_number")
-    @Expose
-    private Integer questionNumber;
-    @SerializedName("answer")
-    @Expose
-    private String answer;
+	@SerializedName("number")
+	@Expose
+	private Integer number;
+	@SerializedName("sentence")
+	@Expose
+	private String sentence;
 
-    public Integer getQuestionNumber() {
-        return questionNumber;
-    }
+	public Integer getNumber() {
+		return number;
+	}
 
-    public void setQuestionNumber(Integer questionNumber) {
-        this.questionNumber = questionNumber;
-    }
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
 
-    public String getAnswer() {
-        return answer;
-    }
+	public String getSentence() {
+		return sentence;
+	}
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
+	public void setSentence(String sentence) {
+		this.sentence = sentence;
+	}
 
 }

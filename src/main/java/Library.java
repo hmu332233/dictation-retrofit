@@ -32,20 +32,7 @@ public class Library {
 			
 //    		System.out.println(apiRequester.startQuiz("5999506d00ab0b00f493dc0d", 3));
 //    		
-//    		apiRequester.getTeachersQuizzes(new ApiRequester.UserCallback<List<Quiz>>() {
-//				@Override
-//				public void onSuccess(List<Quiz> result) {
-//					// TODO Auto-generated method stub
-//					for(Quiz q : result)
-//						System.out.println(q.getId());
-//				}
-//
-//				@Override
-//				public void onFail() {
-//					// TODO Auto-generated method stub
-//					
-//				}
-//			});
+//    		apiRequester.getTeachersQuizzes(new API);
     		
 //    		apiRequester.endQuiz("599b258d4cbd500343a014ff", "599950df63aa9d012f8f5dea" , quizResult, new ApiRequester.UserCallback<QuizHistory>() {
 //
@@ -61,6 +48,28 @@ public class Library {
 //					System.out.println("실패");
 //				}
 //			});
+//    		
+    		apiRequester.getQuizHistory("599b4961b810a0089b6952ea",new ApiRequester.UserCallback<QuizHistory>() {
+				
+				@Override
+				public void onSuccess(QuizHistory result) {
+					// TODO Auto-generated method stub
+			
+						
+						List<QuizResult> qr = result.getQuizResults();
+						
+						System.out.println(qr.get(0).getQuestionResult().get(0).getWrongPart().get(0)[1]);
+						
+							
+							
+				}
+				
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
     		
     		
 //    		

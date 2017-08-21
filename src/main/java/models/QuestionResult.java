@@ -1,6 +1,8 @@
 
 package models;
 
+import java.util.ArrayList;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +16,7 @@ public class QuestionResult {
     private String correct;
     @SerializedName("wrong_part")
     @Expose
-    private String wrongPart;
+    private ArrayList<String[]> wrongPart;
     @SerializedName("submitted_answer")
     @Expose
     private String submittedAnswer;
@@ -35,11 +37,11 @@ public class QuestionResult {
         this.correct = correct;
     }
 
-    public String getWrongPart() {
+    public ArrayList<String[]> getWrongPart() {
         return wrongPart;
     }
 
-    public void setWrongPart(String wrongPart) {
+    public void setWrongPart(ArrayList<String[]> wrongPart) {
         this.wrongPart = wrongPart;
     }
 
