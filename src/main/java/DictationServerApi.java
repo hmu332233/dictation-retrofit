@@ -46,7 +46,7 @@ public interface DictationServerApi {
     
     @Headers("Content-Type: application/json")
     @POST("/quiz/end")
-    Call<ResponseBody> endQuiz(@Body JsonObject endedQuiz);
+    Call<QuizHistory> endQuiz(@Body JsonObject endedQuiz);
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://dictation.run.goorm.io")
