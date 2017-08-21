@@ -8,7 +8,23 @@
   - `DictationServerApi`을 사용하여 model 객체 생성
 - models
   - model 모아놓은 폴더
+### 사용법
+- `apiRequester.method(callback)`
+- 해당 메소드의 인자를 넣어주고 callback으로 `ApiRequester.UserCallback`을 넣어준다.
+```java
+apiRequester.getTeachersQuizzes(new ApiRequester.UserCallback<List<Quiz>>() {
 
+				@Override
+				public void onSuccess(List<Quiz> result) {
+					// TODO Auto-generated method stub
+				}
+
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+				}
+			});
+```
 ### 사용 라이브러리
 - **gradle**
 ```bash
