@@ -64,19 +64,19 @@ public class ApiRequester {
 	}
 	
 	//quiz list를 리턴한다
-	public void getTeachersQuizzes(UserCallback userCallback) throws IOException{
+	public void getTeachersQuizzes(UserCallback<List<Quiz>> userCallback) throws IOException{
 		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes();
 		call.enqueue(new CustomCallback<List<Quiz>>(userCallback));
 	}
 	
 	//quiz history를 리턴한다
-	public void getQuizHistory(String id, UserCallback userCallback) throws IOException{
+	public void getQuizHistory(String id, UserCallback<QuizHistory> userCallback) throws IOException{
     	Call<QuizHistory> call = dictationServerApi.getQuizHistory(id);
     	call.enqueue(new CustomCallback<QuizHistory>(userCallback));
 	}
 	
 	//선생님의 quiz history를 리턴한다
-	public void getTeachersQuizHistories(String id, UserCallback userCallback) throws IOException{
+	public void getTeachersQuizHistories(String id, UserCallback<List<QuizHistory>> userCallback) throws IOException{
 		Call<List<QuizHistory>> call = dictationServerApi.getTeachersQuizHistories(id);
 		call.enqueue(new CustomCallback<List<QuizHistory>>(userCallback));
 	}
@@ -89,7 +89,7 @@ public class ApiRequester {
 	}
 	
 	//시험을 끝내고 quiz result를 전송한다
-	public void endQuiz(String quizHistoryId, String studentId, QuizResult quizResult, UserCallback userCallback) throws JsonSyntaxException, IOException{
+	public void endQuiz(String quizHistoryId, String studentId, QuizResult quizResult, UserCallback<QuizHistory> userCallback) throws JsonSyntaxException, IOException{
 		
 		EndedQuiz endedQuiz = new EndedQuiz();
 		endedQuiz.setQuizHistoryId(quizHistoryId);
