@@ -10,6 +10,9 @@ public class Quiz {
     @SerializedName("number")
     @Expose
     private Integer number;
+    @SerializedName("name")
+    @Expose
+    private String name;
     @SerializedName("_id")
     @Expose
     private String id;
@@ -52,4 +55,12 @@ public class Quiz {
         this.questions = questions;
     }
 
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+    
+    @Override
+    public String toString() {
+        return name;
+    }
 }
