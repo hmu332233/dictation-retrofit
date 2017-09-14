@@ -30,6 +30,18 @@ import retrofit2.http.Query;
 public interface DictationServerApi {
 
   
+	//학생 중복 검사
+	@GET("/students/check_duplicate")
+	Call<ResponseBody> checkDuplicateStudent(	@Query("school") String school,
+												@Query("grade") String grade,
+												@Query("class") String _class,
+												@Query("student_id") int studentId);
+	//선생님 중복 검사
+	@GET("/teachers/check_duplicate")
+	Call<ResponseBody> checkDuplicateTeacher( @Query("login_id") String loginId);
+	//학생 가입
+	//선생님 가입
+	
     //학생 수정
     @GET("/quizzes")
     Call<List<Quiz>> getTeachersQuizzes();
