@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
+import models.Student;
 import models.Teacher;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -40,8 +41,11 @@ public interface DictationServerApi {
 	@GET("/teachers/check_duplicate")
 	Call<ResponseBody> checkDuplicateTeacher( @Query("login_id") String loginId);
 	//학생 가입
+	@POST("/students")
+	Call<Student> signUpStudent(@Body JsonObject student);
 	//선생님 가입
-	
+	@POST("/teachers")
+	Call<Teacher> signUpTeacher(@Body JsonObject teacher);
     //학생 수정
     @GET("/quizzes")
     Call<List<Quiz>> getTeachersQuizzes();

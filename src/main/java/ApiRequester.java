@@ -8,6 +8,7 @@ import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
 import models.Student;
+import models.Teacher;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -148,5 +149,17 @@ public class ApiRequester {
 																					student.getClass_(),
 																					student.getStudentId());
 		call.enqueue(new ResultCallback(userCallback));
+	}
+	
+	//학생 회원 가입
+	public void signUpStudent(Student student, UserCallback<Student> userCallback){
+		Call<Student> call = dictationServerApi.signUpStudent(parser.parse(gson.toJson(student)).getAsJsonObject());
+		call.enqueue(new ObjectCallback<Student>(userCallback));
+	}
+	
+	//선생님 회원 가입
+	public void signUpTeacher(Teacher teacher, UserCallback<Teacher> userCallback){
+		Call<Teacher> call = dictationServerApi.signUpTeacher(parser.parse(gson.toJson(teacher)).getAsJsonObject());
+		call.enqueue(new ObjectCallback<Teacher>(userCallback));
 	}
 }
