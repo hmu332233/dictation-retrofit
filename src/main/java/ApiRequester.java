@@ -41,9 +41,16 @@ public class ApiRequester {
 				// tasks available
 				callback.onSuccess(response.body());
 			} else {
-				// error response, no access to resource?
-				System.out.println("서버 실패");
-				callback.onFail();
+				int status = response.code();
+				if( status == 404){
+					System.out.println("Not Found");
+					callback.onSuccess(null);
+				}
+				else {
+					System.out.println("서버 실패");
+					callback.onFail();
+				}
+				
 			}
 		}
 		@Override
@@ -160,6 +167,12 @@ public class ApiRequester {
 	//선생님 회원 가입
 	public void signUpTeacher(Teacher teacher, UserCallback<Teacher> userCallback){
 		Call<Teacher> call = dictationServerApi.signUpTeacher(parser.parse(gson.toJson(teacher)).getAsJsonObject());
+		call.enqueue(new ObjectCallback<Teacher>(userCallback));
+	}
+	
+	//선생님 로그인 아이디로 검색
+	public void searchTeacherByLoginID(String loginID, UserCallback<Teacher> userCallback){
+		Call<Teacher> call = dictationServerApi.searchTeacherByLoginID(loginID);
 		call.enqueue(new ObjectCallback<Teacher>(userCallback));
 	}
 }

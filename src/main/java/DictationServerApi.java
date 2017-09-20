@@ -49,6 +49,9 @@ public interface DictationServerApi {
     //학생 수정
     @GET("/quizzes")
     Call<List<Quiz>> getTeachersQuizzes();
+    //선생님 로그인 아이디로 검색
+    @GET("/teachers/login_id/{login_id}")
+    Call<Teacher> searchTeacherByLoginID(@Path("login_id") String loginID);
     
     @GET("/teachers/{id}/quiz_histories")
     Call<List<QuizHistory>> getTeachersQuizHistories(@Path("id") String id);
