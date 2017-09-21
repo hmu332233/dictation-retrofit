@@ -42,15 +42,14 @@ public class ApiRequester {
 				callback.onSuccess(response.body());
 			} else {
 				int status = response.code();
-				if( status == 404){
-					System.out.println("Not Found");
+				System.out.println(response.message());
+				if( status == 404 ){
 					callback.onSuccess(null);
-				}
+				} 
 				else {
 					System.out.println("서버 실패");
 					callback.onFail();
 				}
-				
 			}
 		}
 		@Override
@@ -173,6 +172,12 @@ public class ApiRequester {
 	//선생님 로그인 아이디로 검색
 	public void searchTeacherByLoginID(String loginID, UserCallback<Teacher> userCallback){
 		Call<Teacher> call = dictationServerApi.searchTeacherByLoginID(loginID);
+		call.enqueue(new ObjectCallback<Teacher>(userCallback));
+	}
+	
+	//선생님 로그인
+	public void loginTeacher(String loginID, String password, UserCallback<Teacher> userCallback){
+		Call<Teacher> call = dictationServerApi.login(loginID, password, "teacher");
 		call.enqueue(new ObjectCallback<Teacher>(userCallback));
 	}
 }

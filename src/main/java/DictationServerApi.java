@@ -52,6 +52,10 @@ public interface DictationServerApi {
     //선생님 로그인 아이디로 검색
     @GET("/teachers/login_id/{login_id}")
     Call<Teacher> searchTeacherByLoginID(@Path("login_id") String loginID);
+    //선생님 로그인
+    @FormUrlEncoded
+    @POST("/auth/login")
+    Call<Teacher> login(@Field("login_id") String loginID, @Field("password") String password, @Field("type") String type);
     
     @GET("/teachers/{id}/quiz_histories")
     Call<List<QuizHistory>> getTeachersQuizHistories(@Path("id") String id);
