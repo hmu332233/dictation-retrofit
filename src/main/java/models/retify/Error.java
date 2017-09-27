@@ -1,5 +1,4 @@
-package PnuNlpSpeller;
-
+package models.retify;
 
 
 import com.google.gson.annotations.Expose;

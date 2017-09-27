@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import PnuNlpSpeller.PnuNlpSpeller;
+import models.retify.*;
 
 public class QuestionResult {
 

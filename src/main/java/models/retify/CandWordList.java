@@ -1,6 +1,4 @@
-package PnuNlpSpeller;
-
-
+package models.retify;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

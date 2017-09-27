@@ -5,12 +5,8 @@ import java.io.IOException;
 
 import com.google.gson.*;
 
-import PnuNlpSpeller.CandWordList;
-import PnuNlpSpeller.Error;
-import PnuNlpSpeller.Help;
-import PnuNlpSpeller.PnuErrorWord;
-import PnuNlpSpeller.PnuErrorWordList;
-import PnuNlpSpeller.PnuNlpSpeller;
+import models.retify.*;
+import models.retify.Error;
 import models.QuestionResult;
 import models.Quiz;
 import models.QuizHistory;
@@ -95,24 +91,24 @@ public class Library {
 //				}
 //			});
     		
-//    		Teacher teacher = new Teacher();
-//    		teacher.setLoginId("t5est@test.com");
-//    		
-//    		apiRequester.signUpTeacher(teacher, new ApiRequester.UserCallback<Teacher>() {
-//
-//				@Override
-//				public void onSuccess(Teacher result) {
-//					// TODO Auto-generated method stub
-//					System.out.println(result.getLoginId());
-//				}
-//
-//				@Override
-//				public void onFail() {
-//					// TODO Auto-generated method stub
-//					
-//				}
-//    			
-//    		});
+    		Teacher teacher = new Teacher();
+    		teacher.setLoginId("test2@test.com");
+    		
+    		apiRequester.signUpTeacher(teacher, new ApiRequester.UserCallback<Teacher>() {
+
+				@Override
+				public void onSuccess(Teacher result) {
+					// TODO Auto-generated method stub
+					System.out.println(result.getLoginId());
+				}
+
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+					
+				}
+    			
+    		});
 
 //    		apiRequester.searchTeacherByLoginID("test@test.com", new ApiRequester.UserCallback<Teacher>() {
 //				
@@ -240,25 +236,25 @@ public class Library {
 //					System.out.println("실패");
 //				}
 //			});
-    		
-    		apiRequester.getQuizHistory("59c7b6ecebd78b00b8c9147b", new ApiRequester.UserCallback<QuizHistory>() {
-
-				@Override
-				public void onSuccess(QuizHistory result) {
-					// TODO Auto-generated method stub
-					for( QuizResult q : result.getQuizResults())
-						for( QuestionResult qr : q.getQuestionResult()){
-							System.out.println(qr.getRectify().getPnuErrorWordList()[0].getPnuErrorWord()[0].getOrgStr());
-						}
-				
-				}
-
-				@Override
-				public void onFail() {
-					// TODO Auto-generated method stub
-					
-				}
-			});
+//    		
+//    		apiRequester.getQuizHistory("59c7b6ecebd78b00b8c9147b", new ApiRequester.UserCallback<QuizHistory>() {
+//
+//				@Override
+//				public void onSuccess(QuizHistory result) {
+//					// TODO Auto-generated method stub
+//					for( QuizResult q : result.getQuizResults())
+//						for( QuestionResult qr : q.getQuestionResult()){
+//							System.out.println(qr.getRectify().getPnuErrorWordList()[0].getPnuErrorWord()[0].getOrgStr());
+//						}
+//				
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
     		
  
 //    		
