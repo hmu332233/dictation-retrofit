@@ -91,24 +91,24 @@ public class Library {
 //				}
 //			});
     		
-    		Teacher teacher = new Teacher();
-    		teacher.setLoginId("test2@test.com");
-    		
-    		apiRequester.signUpTeacher(teacher, new ApiRequester.UserCallback<Teacher>() {
-
-				@Override
-				public void onSuccess(Teacher result) {
-					// TODO Auto-generated method stub
-					System.out.println(result.getLoginId());
-				}
-
-				@Override
-				public void onFail() {
-					// TODO Auto-generated method stub
-					
-				}
-    			
-    		});
+//    		Teacher teacher = new Teacher();
+//    		teacher.setLoginId("test2@test.com");
+//    		
+//    		apiRequester.signUpTeacher(teacher, new ApiRequester.UserCallback<Teacher>() {
+//
+//				@Override
+//				public void onSuccess(Teacher result) {
+//					// TODO Auto-generated method stub
+//					System.out.println(result.getLoginId());
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//    			
+//    		});
 
 //    		apiRequester.searchTeacherByLoginID("test@test.com", new ApiRequester.UserCallback<Teacher>() {
 //				
@@ -255,8 +255,68 @@ public class Library {
 //					
 //				}
 //			});
+////    		
+//    		apiRequester.acceptMatching("test@test.com", "599c75f7836cc308789f5902", new ApiRequester.UserCallback<Boolean>() {
+//    			
+//				@Override
+//				public void onSuccess(Boolean result) {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
     		
- 
+//    		apiRequester.applyMatching("test@test.com", "599c75f7836cc308789f5902", new ApiRequester.UserCallback<Boolean>() {
+//    			
+//				@Override
+//				public void onSuccess(Boolean result) {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+//    		
+//    		apiRequester.cancelMatching("test@test.com", "599c75f7836cc308789f5902", new ApiRequester.UserCallback<Boolean>() {
+//    			
+//				@Override
+//				public void onSuccess(Boolean result) {
+//					// TODO Auto-generated method stub
+//					System.out.println(result);
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+//    		apiRequester.getTeachersApplicants("test@test.com", new ApiRequester.UserCallback<List<Student>>(){
+//
+//				@Override
+//				public void onSuccess(List<Student> result) {
+//					// TODO Auto-generated method stub
+//					for(Student s : result)
+//						System.out.println(s.getName());
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//    			
+//    		});
+// 
 //    		
 //    		List<QuizHistory> quizHistories = apiRequester.getTeachersQuizHistories("5999506d00ab0b00f493dc0d");
 //    		for(QuizHistory qh : quizHistories)
