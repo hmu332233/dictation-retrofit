@@ -11,6 +11,7 @@ import models.QuestionResult;
 import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
+import models.School;
 import models.Student;
 import models.Teacher;
 import okhttp3.ResponseBody;
@@ -321,6 +322,39 @@ public class Library {
 //    		List<QuizHistory> quizHistories = apiRequester.getTeachersQuizHistories("5999506d00ab0b00f493dc0d");
 //    		for(QuizHistory qh : quizHistories)
 //    			System.out.println(qh.getQuizNumber());
+    		
+//    		apiRequester.getSchools(new ApiRequester.UserCallback<List<School>>() {
+//				
+//				@Override
+//				public void onSuccess(List<School> result) {
+//					// TODO Auto-generated method stub
+//					for(School s : result){
+//						System.out.println(s.getName());
+//					}
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+    		
+    		apiRequester.searchSchools("서울특별시", "서초구", new ApiRequester.UserCallback<List<School>>() {
+
+				@Override
+				public void onSuccess(List<School> result) {
+					// TODO Auto-generated method stub
+					for(School s : result)
+						System.out.println(s.getName());
+				}
+
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
