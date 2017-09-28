@@ -7,6 +7,7 @@ import models.EndedQuiz;
 import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
+import models.School;
 import models.Student;
 import models.Teacher;
 import okhttp3.ResponseBody;
@@ -212,6 +213,17 @@ public class ApiRequester {
 	//매칭 목록보기
 	public void getTeachersApplicants(@Path("teacher_login_id") String teacherLoginID, UserCallback<List<Student>> userCallback){
 		Call<List<Student>> call = dictationServerApi.getTeachersApplicants(teacherLoginID);
+		call.enqueue(new ObjectCallback<>(userCallback));
+	}
+	
+	//학교 목록보기
+	public void getSchools(UserCallback<List<School>> userCallback){
+		Call<List<School>> call = dictationServerApi.getSchools();
+		call.enqueue(new ObjectCallback<>(userCallback));
+	}
+	//학교 검색하기
+	public void searchSchools(String region1, String region2, UserCallback<List<School>> userCallback){
+		Call<List<School>> call = dictationServerApi.searchSchool(region1, region2);
 		call.enqueue(new ObjectCallback<>(userCallback));
 	}
 }
