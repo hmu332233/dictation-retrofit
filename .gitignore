@@ -126,4 +126,7 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+# git-flow
+gitflow
+
 # End of https://www.gitignore.io/api/androidstudio
