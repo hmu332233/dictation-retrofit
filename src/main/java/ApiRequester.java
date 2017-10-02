@@ -14,6 +14,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -226,4 +227,27 @@ public class ApiRequester {
 		Call<List<School>> call = dictationServerApi.searchSchool(region1, region2);
 		call.enqueue(new ObjectCallback<>(userCallback));
 	}
+	
+	//등록된 선생님 목록보기
+	public void getStudentsTeachers(String studentID, UserCallback<List<Teacher>> userCallback){
+		Call<List<Teacher>> call = dictationServerApi.getStudentsTeachers(studentID);
+		call.enqueue(new ObjectCallback<>(userCallback));
+	}
+	
+	//매칭 끊기
+	public void unConnectedMatching(String studentID, String teacherID, UserCallback<Boolean> userCallback){
+		Call<okhttp3.ResponseBody> call = dictationServerApi.unConnectedMatching(studentID, teacherID);
+		call.enqueue(new ResultCallback(userCallback));
+	}
+	
+	//등록된 선생님 삭제하기
+//	public void deleteStudentsTeacher(String studentID, String teacherID, UserCallback<Boolean> userCallback){
+//		Call<okhttp3.ResponseBody> call = dictationServerApi.deleteStudentsTeacher(studentID, teacherID);
+//		call.enqueue(new ResultCallback(userCallback));
+//	}
+	//등록된 학생 삭제하기
+//	public void deleteTeachersStudent(String teacherID, String studentID, UserCallback<Boolean> userCallback){
+//		Call<okhttp3.ResponseBody> call = dictationServerApi.deleteTeachersStudent(teacherID, studentID);
+//		call.enqueue(new ResultCallback(userCallback));
+//	}
 }
