@@ -339,14 +339,46 @@ public class Library {
 //					
 //				}
 //			});
+//    		
+//    		apiRequester.searchSchools("서울특별시", "서초구", new ApiRequester.UserCallback<List<School>>() {
+//
+//				@Override
+//				public void onSuccess(List<School> result) {
+//					// TODO Auto-generated method stub
+//					for(School s : result)
+//						System.out.println(s.getName());
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
     		
-    		apiRequester.searchSchools("서울특별시", "서초구", new ApiRequester.UserCallback<List<School>>() {
+//    		apiRequester.getStudentsTeachers("599c75f7836cc308789f5902", new ApiRequester.UserCallback<List<Teacher>>(){
+//
+//				@Override
+//				public void onSuccess(List<Teacher> result) {
+//					// TODO Auto-generated method stub
+//					for(Teacher t : result)
+//						System.out.println(t.getId());
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//    			
+//    		});
+    		
+    		apiRequester.unConnectedMatching("599c75f7836cc308789f5902", "599b03151c6e6f0159a72815", new ApiRequester.UserCallback<Boolean>(){
 
 				@Override
-				public void onSuccess(List<School> result) {
+				public void onSuccess(Boolean result) {
 					// TODO Auto-generated method stub
-					for(School s : result)
-						System.out.println(s.getName());
+					System.out.println(result);
 				}
 
 				@Override
@@ -354,7 +386,8 @@ public class Library {
 					// TODO Auto-generated method stub
 					
 				}
-			});
+    			
+    		});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
