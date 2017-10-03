@@ -31,26 +31,26 @@ import retrofit2.http.Query;
  */
 
 public interface DictationServerApi {
-	
+
 	//등록된 선생님 목록보기
 	@GET("/students/{student_id}/teachers")
 	Call<List<Teacher>> getStudentsTeachers(@Path("student_id") String studentID);
 	//매칭 끊기 - 이거 사용
 	@DELETE("/matching/teacher_id/{teacher_id}/student_id/{student_id}")
 	Call<ResponseBody> unConnectedMatching(@Path("student_id") String studentID, @Path("teacher_id") String teacherID);
-	// 이거 사용하지마 ///등록된 선생님 삭제하기 
+	// 이거 사용하지마 ///등록된 선생님 삭제하기
 	@DELETE("/students/{student_id}/teachers/{teacher_id}")
 	Call<ResponseBody> deleteStudentsTeacher(@Path("student_id") String studentID, @Path("teacher_id") String teacherID);
 	// 이거 사용하지마 ///등록된 학생 삭제하기
 	@DELETE("/teachers/{teacher_id}/students/{student_id}")
 	Call<ResponseBody> deleteTeachersStudent(@Path("teacher_id") String teacherID, @Path("student_id") String studentID);
-	
+
 	//학교 목록보기
 	@GET("/schools")
 	Call<List<School>> getSchools();
 	//학교 검색하기
 	@GET("/schools/search")
-	Call<List<School>> searchSchool(@Query("region1") String region1, @Query("region2") String region2);
+	Call<List<School>> searchSchool(@Query("region1") String region1, @Query("region2") String region2, @Query("name") String name);
 	//매칭 신청하기
 	@FormUrlEncoded
 	@POST("/matching/apply")
@@ -66,7 +66,7 @@ public interface DictationServerApi {
 	//매칭 목록보기
 	@GET("/matching/list/{teacher_login_id}")
 	Call<List<Student>> getTeachersApplicants(@Path("teacher_login_id") String teacherLoginID);
-	
+
 	//학생 중복 검사
 	@GET("/students/check_duplicate")
 	Call<ResponseBody> checkDuplicateStudent(	@Query("school") String school,
@@ -92,17 +92,17 @@ public interface DictationServerApi {
     @FormUrlEncoded
     @POST("/auth/login")
     Call<Teacher> login(@Field("login_id") String loginID, @Field("password") String password, @Field("type") String type);
-    
+
     @GET("/teachers/{id}/quiz_histories")
     Call<List<QuizHistory>> getTeachersQuizHistories(@Path("id") String id);
-    
+
     @GET("/quiz_histories/{id}")
     Call<QuizHistory> getQuizHistory(@Path("id") String id);
-    
+
     @FormUrlEncoded
     @POST("/quiz/start")
     Call<ResponseBody> startQuiz(@Field("teacher_id") String teacherId, @Field("quiz_number") int quizNumber);
-    
+
     @Headers("Content-Type: application/json")
     @POST("/quiz/end")
     Call<QuizHistory> endQuiz(@Body JsonObject endedQuiz);
