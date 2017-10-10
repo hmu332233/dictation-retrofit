@@ -7,6 +7,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class QuizResult {
 
+	@SerializedName("lank")
+	@Expose
+	private Integer lank;
     @SerializedName("quiz_number")
     @Expose
     private Integer quizNumber;
@@ -19,7 +22,19 @@ public class QuizResult {
     @SerializedName("question_results")
     @Expose
     private List<QuestionResult> questionResult = null;
+    @SerializedName("rectify_count")
+    @Expose
+    private RectifyCount rectifyCount;
 
+    public Integer getLank() {
+    	return lank;
+    }
+
+    public void setLank(Integer lank) {
+    	this.lank = lank;
+    }
+
+    
     public Integer getQuizNumber() {
         return quizNumber;
     }
@@ -51,5 +66,11 @@ public class QuizResult {
     public void setQuestionResult(List<QuestionResult> questionResult) {
         this.questionResult = questionResult;
     }
+    public RectifyCount getRectifyCount() {
+    	return rectifyCount;
+    }
 
+    public void setRectifyCount(RectifyCount rectifyCount) {
+    	this.rectifyCount = rectifyCount;
+    }
 }

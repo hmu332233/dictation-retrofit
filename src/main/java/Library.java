@@ -33,7 +33,7 @@ public class Library {
     		
 
 ////    		
-//    		apiRequester.getQuizHistory("599b4de9e5d3aa01a4ed336f",new ApiRequester.UserCallback<QuizHistory>() {
+//    		apiRequester.getQuizHistory("599c85332a7fdd0961a8c712",new ApiRequester.UserCallback<QuizHistory>() {
 //				
 //				@Override
 //				public void onSuccess(QuizHistory result) {
@@ -42,7 +42,7 @@ public class Library {
 //						
 //						List<QuizResult> qr = result.getQuizResults();
 //						
-//						System.out.println(qr.get(0).getQuestionResult().get(0).getRectify().get(0)[0]);
+//						System.out.println(qr.get(0).getRectifyCount().getProperty10());
 //						
 //							
 //							
@@ -319,9 +319,32 @@ public class Library {
 //    		});
 // 
 //    		
-//    		List<QuizHistory> quizHistories = apiRequester.getTeachersQuizHistories("5999506d00ab0b00f493dc0d");
-//    		for(QuizHistory qh : quizHistories)
-//    			System.out.println(qh.getQuizNumber());
+    		apiRequester.getTeachersQuizHistories("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<List<QuizHistory>>() {
+				
+				@Override
+				public void onSuccess(List<QuizHistory> result) {
+					// TODO Auto-generated method stub
+					if(result == null) {
+						System.out.println("null");
+					} else {
+						for(QuizHistory qh : result) {
+			    			System.out.println(qh.getRectifyCount().getProperty1());
+							System.out.println(qh.getAverage());
+							for(QuizResult qr : qh.getQuizResults()) {
+								System.out.println(qr.getLank());
+								System.out.println(qr.getRectifyCount().getProperty1());
+							}
+						}
+					}
+		    		
+				}
+				
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+					
+				}
+    		});
     		
 //    		apiRequester.getSchools(new ApiRequester.UserCallback<List<School>>() {
 //				
@@ -373,21 +396,21 @@ public class Library {
 //    			
 //    		});
     		
-    		apiRequester.unConnectedMatching("599c75f7836cc308789f5902", "599b03151c6e6f0159a72815", new ApiRequester.UserCallback<Boolean>(){
-
-				@Override
-				public void onSuccess(Boolean result) {
-					// TODO Auto-generated method stub
-					System.out.println(result);
-				}
-
-				@Override
-				public void onFail() {
-					// TODO Auto-generated method stub
-					
-				}
+//    		apiRequester.unConnectedMatching("599c75f7836cc308789f5902", "599b03151c6e6f0159a72815", new ApiRequester.UserCallback<Boolean>(){
+//
+//				@Override
+//				public void onSuccess(Boolean result) {
+//					// TODO Auto-generated method stub
+//					System.out.println(result);
+//				}
+//
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
     			
-    		});
+//    		});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
