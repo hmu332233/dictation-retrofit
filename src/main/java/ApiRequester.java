@@ -7,6 +7,7 @@ import models.EndedQuiz;
 import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
+import models.RectifyCount;
 import models.School;
 import models.Student;
 import models.Teacher;
@@ -248,6 +249,12 @@ public class ApiRequester {
 	public void unConnectedMatching(String studentID, String teacherID, UserCallback<Boolean> userCallback){
 		Call<okhttp3.ResponseBody> call = dictationServerApi.unConnectedMatching(studentID, teacherID);
 		call.enqueue(new ResultCallback(userCallback));
+	}
+	
+	//전체 시험결과 취약점 합산 가져오기
+	public void getRecifyCountToAllQuizHistories(String teacherID, UserCallback<RectifyCount> userCallback){
+		Call<RectifyCount> call = dictationServerApi.getRecifyCountToAllQuizHistories(teacherID);
+		call.enqueue(new ObjectCallback<>(userCallback));
 	}
 
 	//등록된 선생님 삭제하기

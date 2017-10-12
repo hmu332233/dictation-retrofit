@@ -11,6 +11,7 @@ import models.QuestionResult;
 import models.Quiz;
 import models.QuizHistory;
 import models.QuizResult;
+import models.RectifyCount;
 import models.School;
 import models.Student;
 import models.Teacher;
@@ -319,22 +320,42 @@ public class Library {
 //    		});
 // 
 //    		
-    		apiRequester.getTeachersQuizHistories("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<List<QuizHistory>>() {
+//    		apiRequester.getTeachersQuizHistories("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<List<QuizHistory>>() {
+//				
+//				@Override
+//				public void onSuccess(List<QuizHistory> result) {
+//					// TODO Auto-generated method stub
+//					if(result == null) {
+//						System.out.println("null");
+//					} else {
+//						for(QuizHistory qh : result) {
+//			    			System.out.println(qh.getRectifyCount().getProperty1());
+//							System.out.println(qh.getAverage());
+//							for(QuizResult qr : qh.getQuizResults()) {
+//								System.out.println(qr.getLank());
+//								System.out.println(qr.getRectifyCount().getProperty1());
+//							}
+//						}
+//					}
+//		    		
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//    		});
+//    		
+    		apiRequester.getRecifyCountToAllQuizHistories("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<RectifyCount>() {
 				
 				@Override
-				public void onSuccess(List<QuizHistory> result) {
+				public void onSuccess(RectifyCount result) {
 					// TODO Auto-generated method stub
 					if(result == null) {
 						System.out.println("null");
 					} else {
-						for(QuizHistory qh : result) {
-			    			System.out.println(qh.getRectifyCount().getProperty1());
-							System.out.println(qh.getAverage());
-							for(QuizResult qr : qh.getQuizResults()) {
-								System.out.println(qr.getLank());
-								System.out.println(qr.getRectifyCount().getProperty1());
-							}
-						}
+						System.out.println(result.getProperty1());
 					}
 		    		
 				}
