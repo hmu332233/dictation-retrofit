@@ -120,8 +120,8 @@ public class ApiRequester {
 	}
 
 	//quiz list를 리턴한다
-	public void getTeachersQuizzes(UserCallback<List<Quiz>> userCallback) throws IOException{
-		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes();
+	public void getTeachersQuizzes(String teacherID,UserCallback<List<Quiz>> userCallback) throws IOException{
+		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes(teacherID);
 		call.enqueue(new ObjectCallback<List<Quiz>>(userCallback));
 	}
 
