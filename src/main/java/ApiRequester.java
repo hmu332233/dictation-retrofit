@@ -124,6 +124,11 @@ public class ApiRequester {
 		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes(teacherID);
 		call.enqueue(new ObjectCallback<List<Quiz>>(userCallback));
 	}
+	
+	public void addTeachersQuiz(String teacherID, Quiz quiz, UserCallback<Boolean> userCallback) {
+		Call<okhttp3.ResponseBody> call = dictationServerApi.addTeachersQuiz(teacherID, parser.parse(gson.toJson(quiz)).getAsJsonObject());
+		call.enqueue(new ResultCallback(userCallback));
+	}
 
 	//quiz history를 리턴한다
 	public void getQuizHistory(String quizHistoryId, UserCallback<QuizHistory> userCallback) throws IOException{
