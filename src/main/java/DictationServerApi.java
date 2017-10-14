@@ -23,6 +23,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -33,9 +34,18 @@ import retrofit2.http.Query;
 
 public interface DictationServerApi {
 	
+
 	//선생님이 본 모든 시험 결과에 대한 취약점 합산
 	@GET("/teachers/{teacher_id}/quiz_histories/rectify_count")
 	Call<RectifyCount> getRecifyCountToAllQuizHistories(@Path("teacher_id") String teacherID);
+
+	//학생 정보 가져오기
+	@GET("/students/{student_id}")
+	Call<Student> getStudent(@Path("student_id") String studentID);
+	//학생 정보 수정하기
+	@PUT("/students/{student_id}")
+	Call<Student> updateStudent(@Path("student_id") String studentID, @Body JsonObject student);
+
 	//등록된 선생님 목록보기
 	@GET("/students/{student_id}/teachers")
 	Call<List<Teacher>> getStudentsTeachers(@Path("student_id") String studentID);
@@ -86,9 +96,12 @@ public interface DictationServerApi {
 	//선생님 가입
 	@POST("/teachers")
 	Call<Teacher> signUpTeacher(@Body JsonObject teacher);
-    //학생 수정
-    @GET("/quizzes")
-    Call<List<Quiz>> getTeachersQuizzes();
+    //선생님 퀴즈 목록 가져오기
+    @GET("/teachers/{teacher_id}/quizzes")
+    Call<List<Quiz>> getTeachersQuizzes(@Path("teacher_id") String teacherID);
+    //선생님 퀴즈 목록 추가하기
+    @POST("/teachers/{teacher_id}/quizzes")
+    Call<ResponseBody> addTeachersQuiz(@Path("teacher_id") String teacherID, @Body JsonObject quiz);
     //선생님 로그인 아이디로 검색
     @GET("/teachers/login_id/{login_id}")
     Call<Teacher> searchTeacherByLoginID(@Path("login_id") String loginID);

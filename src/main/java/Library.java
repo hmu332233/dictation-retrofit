@@ -430,8 +430,78 @@ public class Library {
 //					// TODO Auto-generated method stub
 //					
 //				}
-    			
+
+//    			
 //    		});
+    		
+//    		apiRequester.getTeachersQuizzes("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<List<Quiz>>() {
+//				
+//				@Override
+//				public void onSuccess(List<Quiz> result) {
+//					// TODO Auto-generated method stub
+//					for(Quiz q : result) {
+//						System.out.println(q.getNumber());
+//					}
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+//    		
+//    		Quiz quiz = new Quiz();
+//    		quiz.setName("asdf");
+//    		quiz.setNumber(10);
+    	
+    		
+//    		apiRequester.addTeachersQuiz("599b03151c6e6f0159a72815", quiz, new ApiRequester.UserCallback<Boolean>() {
+//				
+//				@Override
+//				public void onSuccess(Boolean result) {
+//					// TODO Auto-generated method stub
+//					System.out.println(result);
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+    		
+    		apiRequester.getStudent("599b4041cefd5d07c5be9594", new ApiRequester.UserCallback<Student>() {
+				
+				@Override
+				public void onSuccess(Student result) {
+					// TODO Auto-generated method stub
+					System.out.println(result.getName());
+					result.setName("ㅎㅎㅎ");
+					
+					apiRequester.updateStudent("599b4041cefd5d07c5be9594", result, new ApiRequester.UserCallback<Student>() {
+						
+						@Override
+						public void onSuccess(Student result) {
+							// TODO Auto-generated method stub
+							System.out.println(result.getName());
+						}
+						
+						@Override
+						public void onFail() {
+							// TODO Auto-generated method stub
+							
+						}
+					});
+				}
+				
+				@Override
+				public void onFail() {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

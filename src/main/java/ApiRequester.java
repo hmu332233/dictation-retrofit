@@ -121,9 +121,14 @@ public class ApiRequester {
 	}
 
 	//quiz list를 리턴한다
-	public void getTeachersQuizzes(UserCallback<List<Quiz>> userCallback) throws IOException{
-		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes();
+	public void getTeachersQuizzes(String teacherID,UserCallback<List<Quiz>> userCallback) throws IOException{
+		Call<List<Quiz>> call = dictationServerApi.getTeachersQuizzes(teacherID);
 		call.enqueue(new ObjectCallback<List<Quiz>>(userCallback));
+	}
+	
+	public void addTeachersQuiz(String teacherID, Quiz quiz, UserCallback<Boolean> userCallback) {
+		Call<okhttp3.ResponseBody> call = dictationServerApi.addTeachersQuiz(teacherID, parser.parse(gson.toJson(quiz)).getAsJsonObject());
+		call.enqueue(new ResultCallback(userCallback));
 	}
 
 	//quiz history를 리턴한다
@@ -251,9 +256,23 @@ public class ApiRequester {
 		call.enqueue(new ResultCallback(userCallback));
 	}
 	
+
 	//전체 시험결과 취약점 합산 가져오기
 	public void getRecifyCountToAllQuizHistories(String teacherID, UserCallback<RectifyCount> userCallback){
 		Call<RectifyCount> call = dictationServerApi.getRecifyCountToAllQuizHistories(teacherID);
+    call.enqueue(new ObjectCallback<>(userCallback));
+	}
+
+	//학생 정보 가져오기
+	public void getStudent(String studentID, UserCallback<Student> userCallback){
+		Call<Student> call = dictationServerApi.getStudent(studentID);
+		call.enqueue(new ObjectCallback<>(userCallback));
+	}
+	
+	//학생 정보 수정하기
+	public void updateStudent(String studentID, Student student, UserCallback<Student> userCallback){
+		student.setId(null);
+		Call<Student> call = dictationServerApi.updateStudent(studentID, parser.parse(gson.toJson(student)).getAsJsonObject());
 		call.enqueue(new ObjectCallback<>(userCallback));
 	}
 
