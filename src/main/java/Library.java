@@ -426,28 +426,44 @@ public class Library {
 //				}
 //			});
     		
-    		apiRequester.getStudent("599b4041cefd5d07c5be9594", new ApiRequester.UserCallback<Student>() {
+//    		apiRequester.getStudent("599b4041cefd5d07c5be9594", new ApiRequester.UserCallback<Student>() {
+//				
+//				@Override
+//				public void onSuccess(Student result) {
+//					// TODO Auto-generated method stub
+//					System.out.println(result.getName());
+//					result.setName("ㅎㅎㅎ");
+//					
+//					apiRequester.updateStudent("599b4041cefd5d07c5be9594", result, new ApiRequester.UserCallback<Student>() {
+//						
+//						@Override
+//						public void onSuccess(Student result) {
+//							// TODO Auto-generated method stub
+//							System.out.println(result.getName());
+//						}
+//						
+//						@Override
+//						public void onFail() {
+//							// TODO Auto-generated method stub
+//							
+//						}
+//					});
+//				}
+//				
+//				@Override
+//				public void onFail() {
+//					// TODO Auto-generated method stub
+//					
+//				}
+//			});
+    		
+    		apiRequester.getTeachersStudents("599b03151c6e6f0159a72815", new ApiRequester.UserCallback<List<Student>>() {
 				
 				@Override
-				public void onSuccess(Student result) {
+				public void onSuccess(List<Student> result) {
 					// TODO Auto-generated method stub
-					System.out.println(result.getName());
-					result.setName("ㅎㅎㅎ");
-					
-					apiRequester.updateStudent("599b4041cefd5d07c5be9594", result, new ApiRequester.UserCallback<Student>() {
-						
-						@Override
-						public void onSuccess(Student result) {
-							// TODO Auto-generated method stub
-							System.out.println(result.getName());
-						}
-						
-						@Override
-						public void onFail() {
-							// TODO Auto-generated method stub
-							
-						}
-					});
+					for(Student s : result)
+						System.out.println(s.getName());
 				}
 				
 				@Override

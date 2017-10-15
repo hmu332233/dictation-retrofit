@@ -33,6 +33,9 @@ import retrofit2.http.Query;
 
 public interface DictationServerApi {
 	
+	//선생님의 학생 목록 가져오기
+	@GET("/teachers/{teacher_id}/students")
+	Call<List<Student>> getTeachersStudents(@Path("teacher_id") String teacherID);
 	//학생 정보 가져오기
 	@GET("/students/{student_id}")
 	Call<Student> getStudent(@Path("student_id") String studentID);
