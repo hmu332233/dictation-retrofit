@@ -275,6 +275,11 @@ public class ApiRequester {
 		Call<Student> call = dictationServerApi.updateStudent(studentID, parser.parse(gson.toJson(student)).getAsJsonObject());
 		call.enqueue(new ObjectCallback<>(userCallback));
 	}
+	
+	public void getTeachersStudents(String teacherID, UserCallback<List<Student>> userCallback){
+		Call<List<Student>> call = dictationServerApi.getTeachersStudents(teacherID);
+		call.enqueue(new ObjectCallback<>(userCallback));
+	}
 
 	//등록된 선생님 삭제하기
 //	public void deleteStudentsTeacher(String studentID, String teacherID, UserCallback<Boolean> userCallback){
